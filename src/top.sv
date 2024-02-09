@@ -396,7 +396,7 @@ logic FpgaPins_Fpga_CALC_valid_a1,
                         FpgaPins_Fpga_CALC_digit_a3 == 8'h3 ? 8'b01001111 :
                         FpgaPins_Fpga_CALC_digit_a3 == 8'h4 ? 8'b01100110 :
                         FpgaPins_Fpga_CALC_digit_a3 == 8'h5 ? 8'b01101101 :
-                        FpgaPins_Fpga_CALC_digit_a3 == 8'h6 ? 8'b01111100 :
+                        FpgaPins_Fpga_CALC_digit_a3 == 8'h6 ? 8'b01111101 :
                         FpgaPins_Fpga_CALC_digit_a3 == 8'h7 ? 8'b00000111 :
                         FpgaPins_Fpga_CALC_digit_a3 == 8'h8 ? 8'b01111111 :
                         FpgaPins_Fpga_CALC_digit_a3 == 8'h9 ? 8'b01101111 :
