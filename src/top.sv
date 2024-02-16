@@ -344,11 +344,11 @@ logic FpgaPins_Fpga_KYPD_TWH_sample_pulse_a0;
                //_|kypd_twh
                   //_@0
             
-                     assign FpgaPins_Fpga_KYPD_TWH_reset_a0 = reset;
+                     assign FpgaPins_Fpga_KYPD_TWH_reset_a0 = reset || ui_in[7];
             
                      assign FpgaPins_Fpga_KYPD_TWH_cnt_a0[8:0] = FpgaPins_Fpga_KYPD_TWH_reset_a0 ? 9'b0 : FpgaPins_Fpga_KYPD_TWH_cnt_a1 + 1'b1;
             
-                     assign FpgaPins_Fpga_KYPD_TWH_sample_pulse_a0 = FpgaPins_Fpga_KYPD_TWH_cnt_a0 == 8'b11111111;
+                     assign FpgaPins_Fpga_KYPD_TWH_sample_pulse_a0 = FpgaPins_Fpga_KYPD_TWH_cnt_a0 == 9'b111111111;
                      //$sample_pulse = $sample_pulse + 1'b1;
             
                      assign FpgaPins_Fpga_KYPD_TWH_column_1_a0 = 4'b0001;
