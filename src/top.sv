@@ -4,7 +4,7 @@
 //_\SV
    // Include Tiny Tapeout Lab.
    // Included URL: "https://raw.githubusercontent.com/os-fpga/Virtual-FPGA-Lab/35e36bd144fddd75495d4cbc01c4fc50ac5bde6f/tlv_lib/tiny_tapeout_lib.tlv"// Included URL: "https://raw.githubusercontent.com/os-fpga/Virtual-FPGA-Lab/a069f1e4e19adc829b53237b3e0b5d6763dc3194/tlv_lib/fpga_includes.tlv"
-//_\source top.tlv 88
+//_\source top.tlv 118
 
 //_\SV
 
@@ -99,21 +99,59 @@ logic [7:0] L0_sseg_digit_n_a0;
 // For $sseg_segment_n.
 logic [6:0] L0_sseg_segment_n_a0;
 
-// For /fpga_pins/fpga|kyad_twh$cnt.
-logic [7:0] FpgaPins_Fpga_KYAD_TWH_cnt_a0,
-            FpgaPins_Fpga_KYAD_TWH_cnt_a1;
+// For /fpga_pins/fpga|kypd_twh$cnt.
+logic [8:0] FpgaPins_Fpga_KYPD_TWH_cnt_a0,
+            FpgaPins_Fpga_KYPD_TWH_cnt_a1;
 
-// For /fpga_pins/fpga|kyad_twh$digit.
-logic [3:0] FpgaPins_Fpga_KYAD_TWH_digit_a0;
+// For /fpga_pins/fpga|kypd_twh$column1.
+logic FpgaPins_Fpga_KYPD_TWH_column1_a0;
 
-// For /fpga_pins/fpga|kyad_twh$inp_digit.
-logic [3:0] FpgaPins_Fpga_KYAD_TWH_inp_digit_a0;
+// For /fpga_pins/fpga|kypd_twh$column2.
+logic FpgaPins_Fpga_KYPD_TWH_column2_a0;
 
-// For /fpga_pins/fpga|kyad_twh$out.
-logic [3:0] FpgaPins_Fpga_KYAD_TWH_out_a0;
+// For /fpga_pins/fpga|kypd_twh$column3.
+logic FpgaPins_Fpga_KYPD_TWH_column3_a0;
 
-// For /fpga_pins/fpga|kyad_twh$reset.
-logic FpgaPins_Fpga_KYAD_TWH_reset_a0;
+// For /fpga_pins/fpga|kypd_twh$column4.
+logic FpgaPins_Fpga_KYPD_TWH_column4_a0;
+
+// For /fpga_pins/fpga|kypd_twh$column_1.
+logic FpgaPins_Fpga_KYPD_TWH_column_1_a0;
+
+// For /fpga_pins/fpga|kypd_twh$column_2.
+logic FpgaPins_Fpga_KYPD_TWH_column_2_a0;
+
+// For /fpga_pins/fpga|kypd_twh$column_3.
+logic FpgaPins_Fpga_KYPD_TWH_column_3_a0;
+
+// For /fpga_pins/fpga|kypd_twh$column_4.
+logic FpgaPins_Fpga_KYPD_TWH_column_4_a0;
+
+// For /fpga_pins/fpga|kypd_twh$out.
+logic [3:0] FpgaPins_Fpga_KYPD_TWH_out_a0,
+            FpgaPins_Fpga_KYPD_TWH_out_a1;
+
+// For /fpga_pins/fpga|kypd_twh$r_column1.
+logic [31:0] FpgaPins_Fpga_KYPD_TWH_r_column1_n1,
+             FpgaPins_Fpga_KYPD_TWH_r_column1_a0;
+
+// For /fpga_pins/fpga|kypd_twh$r_column2.
+logic [31:0] FpgaPins_Fpga_KYPD_TWH_r_column2_n1,
+             FpgaPins_Fpga_KYPD_TWH_r_column2_a0;
+
+// For /fpga_pins/fpga|kypd_twh$r_column3.
+logic [31:0] FpgaPins_Fpga_KYPD_TWH_r_column3_n1,
+             FpgaPins_Fpga_KYPD_TWH_r_column3_a0;
+
+// For /fpga_pins/fpga|kypd_twh$r_column4.
+logic [31:0] FpgaPins_Fpga_KYPD_TWH_r_column4_n1,
+             FpgaPins_Fpga_KYPD_TWH_r_column4_a0;
+
+// For /fpga_pins/fpga|kypd_twh$reset.
+logic FpgaPins_Fpga_KYPD_TWH_reset_a0;
+
+// For /fpga_pins/fpga|kypd_twh$sample_pulse.
+logic FpgaPins_Fpga_KYPD_TWH_sample_pulse_a0;
 
 
 
@@ -129,11 +167,58 @@ logic FpgaPins_Fpga_KYAD_TWH_reset_a0;
 
 
          //
-         // Scope: |kyad_twh
+         // Scope: |kypd_twh
          //
 
             // Staging of $cnt.
-            always_ff @(posedge clk) FpgaPins_Fpga_KYAD_TWH_cnt_a1[7:0] <= FpgaPins_Fpga_KYAD_TWH_cnt_a0[7:0];
+            always_ff @(posedge clk) FpgaPins_Fpga_KYPD_TWH_cnt_a1[8:0] <= FpgaPins_Fpga_KYPD_TWH_cnt_a0[8:0];
+
+            // Staging of signal $column1, which had no assignment.
+            // Assign to a random value.
+            // verilator lint_save
+            // verilator lint_off WIDTH
+            assign FpgaPins_Fpga_KYPD_TWH_column1_a0 = FpgaPins_Fpga_KYPD_TWH_r_column1_a0;
+            // verilator lint_restore
+
+            // Staging of signal $column2, which had no assignment.
+            // Assign to a random value.
+            // verilator lint_save
+            // verilator lint_off WIDTH
+            assign FpgaPins_Fpga_KYPD_TWH_column2_a0 = FpgaPins_Fpga_KYPD_TWH_r_column2_a0;
+            // verilator lint_restore
+
+            // Staging of signal $column3, which had no assignment.
+            // Assign to a random value.
+            // verilator lint_save
+            // verilator lint_off WIDTH
+            assign FpgaPins_Fpga_KYPD_TWH_column3_a0 = FpgaPins_Fpga_KYPD_TWH_r_column3_a0;
+            // verilator lint_restore
+
+            // Staging of signal $column4, which had no assignment.
+            // Assign to a random value.
+            // verilator lint_save
+            // verilator lint_off WIDTH
+            assign FpgaPins_Fpga_KYPD_TWH_column4_a0 = FpgaPins_Fpga_KYPD_TWH_r_column4_a0;
+            // verilator lint_restore
+
+            // Staging of $out.
+            always_ff @(posedge clk) FpgaPins_Fpga_KYPD_TWH_out_a1[3:0] <= FpgaPins_Fpga_KYPD_TWH_out_a0[3:0];
+
+            // Staging of random value for missing assignment.
+            assign FpgaPins_Fpga_KYPD_TWH_r_column1_n1[31:0] = $random() ^ {31'b0, clk};
+            always_ff @(posedge clk) FpgaPins_Fpga_KYPD_TWH_r_column1_a0[31:0] <= FpgaPins_Fpga_KYPD_TWH_r_column1_n1[31:0];
+
+            // Staging of random value for missing assignment.
+            assign FpgaPins_Fpga_KYPD_TWH_r_column2_n1[31:0] = $random() ^ {31'b0, clk};
+            always_ff @(posedge clk) FpgaPins_Fpga_KYPD_TWH_r_column2_a0[31:0] <= FpgaPins_Fpga_KYPD_TWH_r_column2_n1[31:0];
+
+            // Staging of random value for missing assignment.
+            assign FpgaPins_Fpga_KYPD_TWH_r_column3_n1[31:0] = $random() ^ {31'b0, clk};
+            always_ff @(posedge clk) FpgaPins_Fpga_KYPD_TWH_r_column3_a0[31:0] <= FpgaPins_Fpga_KYPD_TWH_r_column3_n1[31:0];
+
+            // Staging of random value for missing assignment.
+            assign FpgaPins_Fpga_KYPD_TWH_r_column4_n1[31:0] = $random() ^ {31'b0, clk};
+            always_ff @(posedge clk) FpgaPins_Fpga_KYPD_TWH_r_column4_a0[31:0] <= FpgaPins_Fpga_KYPD_TWH_r_column4_n1[31:0];
 
 
 
@@ -182,19 +267,33 @@ logic FpgaPins_Fpga_KYAD_TWH_reset_a0;
          if (1) begin : \/fpga 
 
             //
-            // Scope: |kyad_twh
+            // Scope: |kypd_twh
             //
-            if (1) begin : P_kyad_twh
-               (* keep *) logic [7:0] \///@0$cnt ;
-               assign \///@0$cnt = FpgaPins_Fpga_KYAD_TWH_cnt_a0;
-               (* keep *) logic [3:0] \///@0$digit ;
-               assign \///@0$digit = FpgaPins_Fpga_KYAD_TWH_digit_a0;
-               (* keep *) logic [3:0] \///@0$inp_digit ;
-               assign \///@0$inp_digit = FpgaPins_Fpga_KYAD_TWH_inp_digit_a0;
+            if (1) begin : P_kypd_twh
+               (* keep *) logic [8:0] \///@0$cnt ;
+               assign \///@0$cnt = FpgaPins_Fpga_KYPD_TWH_cnt_a0;
+               (* keep *) logic  \>>>@0$column1 ;
+               assign \>>>@0$column1 = FpgaPins_Fpga_KYPD_TWH_column1_a0;
+               (* keep *) logic  \>>>@0$column2 ;
+               assign \>>>@0$column2 = FpgaPins_Fpga_KYPD_TWH_column2_a0;
+               (* keep *) logic  \>>>@0$column3 ;
+               assign \>>>@0$column3 = FpgaPins_Fpga_KYPD_TWH_column3_a0;
+               (* keep *) logic  \>>>@0$column4 ;
+               assign \>>>@0$column4 = FpgaPins_Fpga_KYPD_TWH_column4_a0;
+               (* keep *) logic  \///@0$column_1 ;
+               assign \///@0$column_1 = FpgaPins_Fpga_KYPD_TWH_column_1_a0;
+               (* keep *) logic  \///@0$column_2 ;
+               assign \///@0$column_2 = FpgaPins_Fpga_KYPD_TWH_column_2_a0;
+               (* keep *) logic  \///@0$column_3 ;
+               assign \///@0$column_3 = FpgaPins_Fpga_KYPD_TWH_column_3_a0;
+               (* keep *) logic  \///@0$column_4 ;
+               assign \///@0$column_4 = FpgaPins_Fpga_KYPD_TWH_column_4_a0;
                (* keep *) logic [3:0] \///@0$out ;
-               assign \///@0$out = FpgaPins_Fpga_KYAD_TWH_out_a0;
+               assign \///@0$out = FpgaPins_Fpga_KYPD_TWH_out_a0;
                (* keep *) logic  \///@0$reset ;
-               assign \///@0$reset = FpgaPins_Fpga_KYAD_TWH_reset_a0;
+               assign \///@0$reset = FpgaPins_Fpga_KYPD_TWH_reset_a0;
+               (* keep *) logic  \///@0$sample_pulse ;
+               assign \///@0$sample_pulse = FpgaPins_Fpga_KYPD_TWH_sample_pulse_a0;
             end
          end
       end
@@ -214,7 +313,7 @@ logic FpgaPins_Fpga_KYAD_TWH_reset_a0;
 //_\TLV
    /* verilator lint_off UNOPTFLAT */
    // Connect Tiny Tapeout I/Os to Virtual FPGA Lab.
-   //_\source /raw.githubusercontent.com/osfpga/VirtualFPGALab/35e36bd144fddd75495d4cbc01c4fc50ac5bde6f/tlvlib/tinytapeoutlib.tlv 76   // Instantiated from top.tlv, 157 as: m5+tt_connections()
+   //_\source /raw.githubusercontent.com/osfpga/VirtualFPGALab/35e36bd144fddd75495d4cbc01c4fc50ac5bde6f/tlvlib/tinytapeoutlib.tlv 76   // Instantiated from top.tlv, 187 as: m5+tt_connections()
       assign L0_slideswitch_a0[7:0] = ui_in;
       assign L0_sseg_segment_n_a0[6:0] = ~ uo_out[6:0];
       assign L0_sseg_decimal_point_n_a0 = ~ uo_out[7];
@@ -222,7 +321,7 @@ logic FpgaPins_Fpga_KYAD_TWH_reset_a0;
    //_\end_source
 
    // Instantiate the Virtual FPGA Lab.
-   //_\source /raw.githubusercontent.com/osfpga/VirtualFPGALab/a069f1e4e19adc829b53237b3e0b5d6763dc3194/tlvlib/fpgaincludes.tlv 307   // Instantiated from top.tlv, 160 as: m5+board(/top, /fpga, 7, $, , calc)
+   //_\source /raw.githubusercontent.com/osfpga/VirtualFPGALab/a069f1e4e19adc829b53237b3e0b5d6763dc3194/tlvlib/fpgaincludes.tlv 307   // Instantiated from top.tlv, 190 as: m5+board(/top, /fpga, 7, $, , calc)
       
       //_\source /raw.githubusercontent.com/osfpga/VirtualFPGALab/a069f1e4e19adc829b53237b3e0b5d6763dc3194/tlvlib/fpgaincludes.tlv 355   // Instantiated from /raw.githubusercontent.com/osfpga/VirtualFPGALab/a069f1e4e19adc829b53237b3e0b5d6763dc3194/tlvlib/fpgaincludes.tlv, 309 as: m4+thanks(m5__l(309)m5_eval(m5_get(BOARD_THANKS_ARGS)))
          //_/thanks
@@ -242,33 +341,63 @@ logic FpgaPins_Fpga_KYAD_TWH_reset_a0;
             
             
                //16Key KeyPad
-               //_|kyad_twh
+               //_|kypd_twh
                   //_@0
             
-                     assign FpgaPins_Fpga_KYAD_TWH_reset_a0 = reset;
+                     assign FpgaPins_Fpga_KYPD_TWH_reset_a0 = reset;
             
-                     assign FpgaPins_Fpga_KYAD_TWH_cnt_a0[7:0] = FpgaPins_Fpga_KYAD_TWH_reset_a0 ? 1'b0 : FpgaPins_Fpga_KYAD_TWH_cnt_a1 + 1'b1;
+                     assign FpgaPins_Fpga_KYPD_TWH_cnt_a0[8:0] = FpgaPins_Fpga_KYPD_TWH_reset_a0 ? 9'b0 : FpgaPins_Fpga_KYPD_TWH_cnt_a1 + 1'b1;
             
-                     assign FpgaPins_Fpga_KYAD_TWH_inp_digit_a0[3:0] = ui_in[3:0];
-                     assign FpgaPins_Fpga_KYAD_TWH_out_a0[3:0] = FpgaPins_Fpga_KYAD_TWH_inp_digit_a0[3:0];
-                     assign FpgaPins_Fpga_KYAD_TWH_digit_a0[3:0] = FpgaPins_Fpga_KYAD_TWH_out_a0[3:0];
-                     assign uo_out =
-                        FpgaPins_Fpga_KYAD_TWH_digit_a0 == 4'h0 ? 8'b00111111 :
-                        FpgaPins_Fpga_KYAD_TWH_digit_a0 == 4'h1 ? 8'b00000110 :
-                        FpgaPins_Fpga_KYAD_TWH_digit_a0 == 4'h2 ? 8'b01011011 :
-                        FpgaPins_Fpga_KYAD_TWH_digit_a0 == 4'h3 ? 8'b01001111 :
-                        FpgaPins_Fpga_KYAD_TWH_digit_a0 == 4'h4 ? 8'b01100110 :
-                        FpgaPins_Fpga_KYAD_TWH_digit_a0 == 4'h5 ? 8'b01101101 :
-                        FpgaPins_Fpga_KYAD_TWH_digit_a0 == 4'h6 ? 8'b01111101 :
-                        FpgaPins_Fpga_KYAD_TWH_digit_a0 == 4'h7 ? 8'b00000111 :
-                        FpgaPins_Fpga_KYAD_TWH_digit_a0 == 4'h8 ? 8'b01111111 :
-                        FpgaPins_Fpga_KYAD_TWH_digit_a0 == 4'h9 ? 8'b01101111 :
-                        FpgaPins_Fpga_KYAD_TWH_digit_a0 == 4'ha ? 8'b01110111 :
-                        FpgaPins_Fpga_KYAD_TWH_digit_a0 == 4'hb ? 8'b01111100 :
-                        FpgaPins_Fpga_KYAD_TWH_digit_a0 == 4'hc ? 8'b00111001 :
-                        FpgaPins_Fpga_KYAD_TWH_digit_a0 == 4'hd ? 8'b01011110 :
-                        FpgaPins_Fpga_KYAD_TWH_digit_a0 == 4'he ? 8'b01111001 :
+                     assign FpgaPins_Fpga_KYPD_TWH_sample_pulse_a0 = FpgaPins_Fpga_KYPD_TWH_cnt_a0 == 8'b11111111;
+                     //$sample_pulse = $sample_pulse + 1'b1;
+            
+                     assign FpgaPins_Fpga_KYPD_TWH_column_1_a0 = 4'b0001;
+                     assign FpgaPins_Fpga_KYPD_TWH_column_2_a0 = 4'b0010;
+                     assign FpgaPins_Fpga_KYPD_TWH_column_3_a0 = 4'b0100;
+                     assign FpgaPins_Fpga_KYPD_TWH_column_4_a0 = 4'b1000;
+            
+            
+                     assign FpgaPins_Fpga_KYPD_TWH_out_a0[3:0] =
+                              !FpgaPins_Fpga_KYPD_TWH_reset_a0 ? FpgaPins_Fpga_KYPD_TWH_column1_a0 :
+                              !FpgaPins_Fpga_KYPD_TWH_sample_pulse_a0 ? FpgaPins_Fpga_KYPD_TWH_out_a1 :
+                              (FpgaPins_Fpga_KYPD_TWH_out_a1 == FpgaPins_Fpga_KYPD_TWH_column1_a0) ? FpgaPins_Fpga_KYPD_TWH_column2_a0 :
+                              (FpgaPins_Fpga_KYPD_TWH_out_a1 == FpgaPins_Fpga_KYPD_TWH_column2_a0) ? FpgaPins_Fpga_KYPD_TWH_column3_a0 :
+                              (FpgaPins_Fpga_KYPD_TWH_out_a1 == FpgaPins_Fpga_KYPD_TWH_column3_a0) ? FpgaPins_Fpga_KYPD_TWH_column4_a0 :
+                                                      FpgaPins_Fpga_KYPD_TWH_column1_a0 ;
+            
+            
+            
+                     assign uo_out = FpgaPins_Fpga_KYPD_TWH_out_a0;
+            
+            
+            
+                     /*
+                     $inp_digit[3:0] = *ui_in[3:0];
+                     $out[3:0] = $inp_digit[3:0];
+                     $digit[3:0] = $out[3:0];
+                     */
+            
+                     /*
+                     *uo_out =
+                        $digit == 4'h0 ? 8'b00111111 :
+                        $digit == 4'h1 ? 8'b00000110 :
+                        $digit == 4'h2 ? 8'b01011011 :
+                        $digit == 4'h3 ? 8'b01001111 :
+                        $digit == 4'h4 ? 8'b01100110 :
+                        $digit == 4'h5 ? 8'b01101101 :
+                        $digit == 4'h6 ? 8'b01111101 :
+                        $digit == 4'h7 ? 8'b00000111 :
+                        $digit == 4'h8 ? 8'b01111111 :
+                        $digit == 4'h9 ? 8'b01101111 :
+                        $digit == 4'ha ? 8'b01110111 :
+                        $digit == 4'hb ? 8'b01111100 :
+                        $digit == 4'hc ? 8'b00111001 :
+                        $digit == 4'hd ? 8'b01011110 :
+                        $digit == 4'he ? 8'b01111001 :
                                          8'b01110001;
+                     */
+            
+            
             
             
                // Note that pipesignals assigned here can be found under /fpga_pins/fpga.
@@ -316,7 +445,7 @@ logic FpgaPins_Fpga_KYAD_TWH_reset_a0;
       
    //_\end_source
    // Label the switch inputs [0..7] (1..8 on the physical switch panel) (top-to-bottom).
-   //_\source /raw.githubusercontent.com/osfpga/VirtualFPGALab/35e36bd144fddd75495d4cbc01c4fc50ac5bde6f/tlvlib/tinytapeoutlib.tlv 82   // Instantiated from top.tlv, 162 as: m5+tt_input_labels_viz(⌈"Value[0]", "Value[1]", "Value[2]", "Value[3]", "Op[0]", "Op[1]", "Op[2]", "="⌉)
+   //_\source /raw.githubusercontent.com/osfpga/VirtualFPGALab/35e36bd144fddd75495d4cbc01c4fc50ac5bde6f/tlvlib/tinytapeoutlib.tlv 82   // Instantiated from top.tlv, 192 as: m5+tt_input_labels_viz(⌈"Value[0]", "Value[1]", "Value[2]", "Value[3]", "Op[0]", "Op[1]", "Op[2]", "="⌉)
       for (input_label = 0; input_label <= 7; input_label++) begin : L1_InputLabel //_/input_label
          
       end
