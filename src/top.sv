@@ -100,7 +100,7 @@ logic [7:0] L0_sseg_digit_n_a0;
 logic [6:0] L0_sseg_segment_n_a0;
 
 // For /fpga_pins/fpga|kypd_twh$cnt.
-logic [23:0] FpgaPins_Fpga_KYPD_TWH_cnt_a0,
+logic [19:0] FpgaPins_Fpga_KYPD_TWH_cnt_a0,
              FpgaPins_Fpga_KYPD_TWH_cnt_a1;
 
 // For /fpga_pins/fpga|kypd_twh$column_1.
@@ -149,7 +149,7 @@ logic FpgaPins_Fpga_KYPD_TWH_sample_pulse_a0;
          //
 
             // Staging of $cnt.
-            always_ff @(posedge clk) FpgaPins_Fpga_KYPD_TWH_cnt_a1[23:0] <= FpgaPins_Fpga_KYPD_TWH_cnt_a0[23:0];
+            always_ff @(posedge clk) FpgaPins_Fpga_KYPD_TWH_cnt_a1[19:0] <= FpgaPins_Fpga_KYPD_TWH_cnt_a0[19:0];
 
             // Staging of $out.
             always_ff @(posedge clk) FpgaPins_Fpga_KYPD_TWH_out_a1[7:0] <= FpgaPins_Fpga_KYPD_TWH_out_a0[7:0];
@@ -204,7 +204,7 @@ logic FpgaPins_Fpga_KYPD_TWH_sample_pulse_a0;
             // Scope: |kypd_twh
             //
             if (1) begin : P_kypd_twh
-               (* keep *) logic [23:0] \///@0$cnt ;
+               (* keep *) logic [19:0] \///@0$cnt ;
                assign \///@0$cnt = FpgaPins_Fpga_KYPD_TWH_cnt_a0;
                (* keep *) logic [3:0] \///@0$column_1 ;
                assign \///@0$column_1 = FpgaPins_Fpga_KYPD_TWH_column_1_a0;
@@ -276,9 +276,9 @@ logic FpgaPins_Fpga_KYPD_TWH_sample_pulse_a0;
             
                      assign FpgaPins_Fpga_KYPD_TWH_reset_a0 = reset || ui_in[7];
             
-                     assign FpgaPins_Fpga_KYPD_TWH_cnt_a0[23:0] = FpgaPins_Fpga_KYPD_TWH_reset_a0 ? 24'b0 : FpgaPins_Fpga_KYPD_TWH_cnt_a1 + 1'b1;
+                     assign FpgaPins_Fpga_KYPD_TWH_cnt_a0[19:0] = FpgaPins_Fpga_KYPD_TWH_reset_a0 ? 20'b0 : FpgaPins_Fpga_KYPD_TWH_cnt_a1 + 1'b1;
             
-                     assign FpgaPins_Fpga_KYPD_TWH_sample_pulse_a0 = FpgaPins_Fpga_KYPD_TWH_cnt_a0 == 9'b111111111;
+                     assign FpgaPins_Fpga_KYPD_TWH_sample_pulse_a0 = FpgaPins_Fpga_KYPD_TWH_cnt_a0 == 20'b11111111111111111111;
                      //$sample_pulse = $sample_pulse + 1'b1;
             
                      assign FpgaPins_Fpga_KYPD_TWH_column_1_a0[3:0] = 4'b0001;
@@ -302,7 +302,7 @@ logic FpgaPins_Fpga_KYPD_TWH_sample_pulse_a0;
                      // Read Keypad
             
                      assign FpgaPins_Fpga_KYPD_TWH_inp_digit_a0[3:0] = ui_in[7:4];
-                     assign FpgaPins_Fpga_KYPD_TWH_out1_a0[3:0] = FpgaPins_Fpga_KYPD_TWH_inp_digit_a0[3:0];
+                     assign FpgaPins_Fpga_KYPD_TWH_out1_a0[3:0] = FpgaPins_Fpga_KYPD_TWH_inp_digit_a0;
                      assign uo_out = FpgaPins_Fpga_KYPD_TWH_out1_a0;
             
             
