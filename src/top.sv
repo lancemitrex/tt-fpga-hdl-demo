@@ -4,7 +4,7 @@
 //_\SV
    // Include Tiny Tapeout Lab.
    // Included URL: "https://raw.githubusercontent.com/os-fpga/Virtual-FPGA-Lab/35e36bd144fddd75495d4cbc01c4fc50ac5bde6f/tlv_lib/tiny_tapeout_lib.tlv"// Included URL: "https://raw.githubusercontent.com/os-fpga/Virtual-FPGA-Lab/a069f1e4e19adc829b53237b3e0b5d6763dc3194/tlv_lib/fpga_includes.tlv"
-//_\source top.tlv 99
+//_\source top.tlv 102
 
 //_\SV
 
@@ -115,18 +115,18 @@ logic [3:0] FpgaPins_Fpga_KYPD_TWH_column_3_a0;
 // For /fpga_pins/fpga|kypd_twh$column_4.
 logic [3:0] FpgaPins_Fpga_KYPD_TWH_column_4_a0;
 
-// For /fpga_pins/fpga|kypd_twh$inp_digit.
-logic [3:0] FpgaPins_Fpga_KYPD_TWH_inp_digit_a0;
-
 // For /fpga_pins/fpga|kypd_twh$out.
 logic [3:0] FpgaPins_Fpga_KYPD_TWH_out_a0,
             FpgaPins_Fpga_KYPD_TWH_out_a1;
 
 // For /fpga_pins/fpga|kypd_twh$out1.
-logic [7:0] FpgaPins_Fpga_KYPD_TWH_out1_a0;
+logic [3:0] FpgaPins_Fpga_KYPD_TWH_out1_a0;
 
 // For /fpga_pins/fpga|kypd_twh$reset.
 logic FpgaPins_Fpga_KYPD_TWH_reset_a0;
+
+// For /fpga_pins/fpga|kypd_twh$row_input.
+logic [3:0] FpgaPins_Fpga_KYPD_TWH_row_input_a0;
 
 // For /fpga_pins/fpga|kypd_twh$sample_pulse.
 logic FpgaPins_Fpga_KYPD_TWH_sample_pulse_a0;
@@ -214,14 +214,14 @@ logic FpgaPins_Fpga_KYPD_TWH_sample_pulse_a0;
                assign \///@0$column_3 = FpgaPins_Fpga_KYPD_TWH_column_3_a0;
                (* keep *) logic [3:0] \///@0$column_4 ;
                assign \///@0$column_4 = FpgaPins_Fpga_KYPD_TWH_column_4_a0;
-               (* keep *) logic [3:0] \///@0$inp_digit ;
-               assign \///@0$inp_digit = FpgaPins_Fpga_KYPD_TWH_inp_digit_a0;
                (* keep *) logic [3:0] \///@0$out ;
                assign \///@0$out = FpgaPins_Fpga_KYPD_TWH_out_a0;
-               (* keep *) logic [7:0] \///@0$out1 ;
+               (* keep *) logic [3:0] \///@0$out1 ;
                assign \///@0$out1 = FpgaPins_Fpga_KYPD_TWH_out1_a0;
                (* keep *) logic  \///@0$reset ;
                assign \///@0$reset = FpgaPins_Fpga_KYPD_TWH_reset_a0;
+               (* keep *) logic [3:0] \///@0$row_input ;
+               assign \///@0$row_input = FpgaPins_Fpga_KYPD_TWH_row_input_a0;
                (* keep *) logic  \///@0$sample_pulse ;
                assign \///@0$sample_pulse = FpgaPins_Fpga_KYPD_TWH_sample_pulse_a0;
             end
@@ -243,7 +243,7 @@ logic FpgaPins_Fpga_KYPD_TWH_sample_pulse_a0;
 //_\TLV
    /* verilator lint_off UNOPTFLAT */
    // Connect Tiny Tapeout I/Os to Virtual FPGA Lab.
-   //_\source /raw.githubusercontent.com/osfpga/VirtualFPGALab/35e36bd144fddd75495d4cbc01c4fc50ac5bde6f/tlvlib/tinytapeoutlib.tlv 76   // Instantiated from top.tlv, 168 as: m5+tt_connections()
+   //_\source /raw.githubusercontent.com/osfpga/VirtualFPGALab/35e36bd144fddd75495d4cbc01c4fc50ac5bde6f/tlvlib/tinytapeoutlib.tlv 76   // Instantiated from top.tlv, 171 as: m5+tt_connections()
       assign L0_slideswitch_a0[7:0] = ui_in;
       assign L0_sseg_segment_n_a0[6:0] = ~ uo_out[6:0];
       assign L0_sseg_decimal_point_n_a0 = ~ uo_out[7];
@@ -251,7 +251,7 @@ logic FpgaPins_Fpga_KYPD_TWH_sample_pulse_a0;
    //_\end_source
 
    // Instantiate the Virtual FPGA Lab.
-   //_\source /raw.githubusercontent.com/osfpga/VirtualFPGALab/a069f1e4e19adc829b53237b3e0b5d6763dc3194/tlvlib/fpgaincludes.tlv 307   // Instantiated from top.tlv, 171 as: m5+board(/top, /fpga, 7, $, , calc)
+   //_\source /raw.githubusercontent.com/osfpga/VirtualFPGALab/a069f1e4e19adc829b53237b3e0b5d6763dc3194/tlvlib/fpgaincludes.tlv 307   // Instantiated from top.tlv, 174 as: m5+board(/top, /fpga, 7, $, , calc)
       
       //_\source /raw.githubusercontent.com/osfpga/VirtualFPGALab/a069f1e4e19adc829b53237b3e0b5d6763dc3194/tlvlib/fpgaincludes.tlv 355   // Instantiated from /raw.githubusercontent.com/osfpga/VirtualFPGALab/a069f1e4e19adc829b53237b3e0b5d6763dc3194/tlvlib/fpgaincludes.tlv, 309 as: m4+thanks(m5__l(309)m5_eval(m5_get(BOARD_THANKS_ARGS)))
          //_/thanks
@@ -295,15 +295,18 @@ logic FpgaPins_Fpga_KYPD_TWH_sample_pulse_a0;
                               (FpgaPins_Fpga_KYPD_TWH_out_a1 == FpgaPins_Fpga_KYPD_TWH_column_3_a0) ? FpgaPins_Fpga_KYPD_TWH_column_4_a0 :
                                                        FpgaPins_Fpga_KYPD_TWH_column_1_a0 ;
             
+                     // Read Keypad
+                     assign FpgaPins_Fpga_KYPD_TWH_row_input_a0[3:0] = ui_in[7:4] ;
+                     assign FpgaPins_Fpga_KYPD_TWH_out1_a0[3:0] = FpgaPins_Fpga_KYPD_TWH_row_input_a0 ;
             
                      // Output Column to the 7Segment Display.
-                     assign uo_out = FpgaPins_Fpga_KYPD_TWH_out_a0 ;
+                     assign uo_out =
+                                 !FpgaPins_Fpga_KYPD_TWH_sample_pulse_a0 ? FpgaPins_Fpga_KYPD_TWH_out_a1 :
+                                                     FpgaPins_Fpga_KYPD_TWH_out1_a0 ;
             
-                     // Read Keypad
-            
-                     assign FpgaPins_Fpga_KYPD_TWH_inp_digit_a0[3:0] = ui_in[7:4] ;
-                     assign FpgaPins_Fpga_KYPD_TWH_out1_a0[7:0] = {FpgaPins_Fpga_KYPD_TWH_inp_digit_a0, 4'b0} ;
-                     assign uo_out = FpgaPins_Fpga_KYPD_TWH_out1_a0;
+                     /*
+                     //*uo_out = $out1;
+                     */
             
             
             
@@ -356,7 +359,7 @@ logic FpgaPins_Fpga_KYPD_TWH_sample_pulse_a0;
       
    //_\end_source
    // Label the switch inputs [0..7] (1..8 on the physical switch panel) (top-to-bottom).
-   //_\source /raw.githubusercontent.com/osfpga/VirtualFPGALab/35e36bd144fddd75495d4cbc01c4fc50ac5bde6f/tlvlib/tinytapeoutlib.tlv 82   // Instantiated from top.tlv, 173 as: m5+tt_input_labels_viz(⌈"Value[0]", "Value[1]", "Value[2]", "Value[3]", "Op[0]", "Op[1]", "Op[2]", "="⌉)
+   //_\source /raw.githubusercontent.com/osfpga/VirtualFPGALab/35e36bd144fddd75495d4cbc01c4fc50ac5bde6f/tlvlib/tinytapeoutlib.tlv 82   // Instantiated from top.tlv, 176 as: m5+tt_input_labels_viz(⌈"Value[0]", "Value[1]", "Value[2]", "Value[3]", "Op[0]", "Op[1]", "Op[2]", "="⌉)
       for (input_label = 0; input_label <= 7; input_label++) begin : L1_InputLabel //_/input_label
          
       end
