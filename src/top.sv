@@ -18,7 +18,7 @@ module top(input logic clk, input logic reset, input logic [31:0] cyc_cnt, outpu
    logic [7:0] ui_in, uo_out;
    
    logic [31:0] r;
-   always @(posedge clk) r <= 0;
+   always @(posedge clk) r <= $urandom();
    assign ui_in = r[7:0];
    
    logic ena = 1'b0;
@@ -278,7 +278,7 @@ logic FpgaPins_Fpga_KYPD_TWH_sample_pulse_a0;
             
                      assign FpgaPins_Fpga_KYPD_TWH_cnt_a0[24:0] = FpgaPins_Fpga_KYPD_TWH_reset_a0 ? 25'b0 : FpgaPins_Fpga_KYPD_TWH_cnt_a1 + 1'b1;
             
-                     assign FpgaPins_Fpga_KYPD_TWH_sample_pulse_a0 = FpgaPins_Fpga_KYPD_TWH_cnt_a0 == 25'b11111111111111111111;
+                     assign FpgaPins_Fpga_KYPD_TWH_sample_pulse_a0 = FpgaPins_Fpga_KYPD_TWH_cnt_a0 == 25'b1111111111111111111111111;
                      //$sample_pulse = $sample_pulse + 1'b1;
             
                      assign FpgaPins_Fpga_KYPD_TWH_column_1_a0[3:0] = 4'b0001;
@@ -301,8 +301,8 @@ logic FpgaPins_Fpga_KYPD_TWH_sample_pulse_a0;
             
                      // Output Column to the 7Segment Display.
                      assign uo_out =
-                                 !FpgaPins_Fpga_KYPD_TWH_sample_pulse_a0 ? FpgaPins_Fpga_KYPD_TWH_out_a1 :
-                                                     FpgaPins_Fpga_KYPD_TWH_out1_a0 ;
+                                 FpgaPins_Fpga_KYPD_TWH_sample_pulse_a0 ? FpgaPins_Fpga_KYPD_TWH_out_a1 :
+                                                    FpgaPins_Fpga_KYPD_TWH_out1_a0 ;
             
                      /*
                      //*uo_out = $out1;
