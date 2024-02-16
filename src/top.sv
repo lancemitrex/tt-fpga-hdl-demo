@@ -263,11 +263,11 @@ logic FpgaPins_Fpga_KYAD_TWH_reset_a0;
                         FpgaPins_Fpga_KYAD_TWH_digit_a0 == 4'h7 ? 8'b00000111 :
                         FpgaPins_Fpga_KYAD_TWH_digit_a0 == 4'h8 ? 8'b01111111 :
                         FpgaPins_Fpga_KYAD_TWH_digit_a0 == 4'h9 ? 8'b01101111 :
-                        FpgaPins_Fpga_KYAD_TWH_digit_a0 == 4'hA ? 8'b01110111 :
-                        FpgaPins_Fpga_KYAD_TWH_digit_a0 == 4'hB ? 8'b01111100 :
-                        FpgaPins_Fpga_KYAD_TWH_digit_a0 == 4'hC ? 8'b00111001 :
-                        FpgaPins_Fpga_KYAD_TWH_digit_a0 == 4'hD ? 8'b01011110 :
-                        FpgaPins_Fpga_KYAD_TWH_digit_a0 == 4'hE ? 8'b01111001 :
+                        FpgaPins_Fpga_KYAD_TWH_digit_a0 == 4'ha ? 8'b01110111 :
+                        FpgaPins_Fpga_KYAD_TWH_digit_a0 == 4'hb ? 8'b01111100 :
+                        FpgaPins_Fpga_KYAD_TWH_digit_a0 == 4'hc ? 8'b00111001 :
+                        FpgaPins_Fpga_KYAD_TWH_digit_a0 == 4'hd ? 8'b01011110 :
+                        FpgaPins_Fpga_KYAD_TWH_digit_a0 == 4'he ? 8'b01111001 :
                                          8'b01110001;
             
             
@@ -277,7 +277,7 @@ logic FpgaPins_Fpga_KYAD_TWH_reset_a0;
             
             
                // Connect Tiny Tapeout outputs. Note that uio_ outputs are not available in the Tiny-Tapeout-3-based FPGA boards.
-               assign uo_out = 8'b0;
+               //*uo_out = 8'b0;
                
                
             //_\end_source
