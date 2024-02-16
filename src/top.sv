@@ -119,11 +119,11 @@ logic [3:0] FpgaPins_Fpga_KYPD_TWH_column_4_a0;
 logic [3:0] FpgaPins_Fpga_KYPD_TWH_inp_digit_a0;
 
 // For /fpga_pins/fpga|kypd_twh$out.
-logic [7:0] FpgaPins_Fpga_KYPD_TWH_out_a0,
+logic [3:0] FpgaPins_Fpga_KYPD_TWH_out_a0,
             FpgaPins_Fpga_KYPD_TWH_out_a1;
 
 // For /fpga_pins/fpga|kypd_twh$out1.
-logic [7:0] FpgaPins_Fpga_KYPD_TWH_out1_a0;
+logic [3:0] FpgaPins_Fpga_KYPD_TWH_out1_a0;
 
 // For /fpga_pins/fpga|kypd_twh$reset.
 logic FpgaPins_Fpga_KYPD_TWH_reset_a0;
@@ -152,7 +152,7 @@ logic FpgaPins_Fpga_KYPD_TWH_sample_pulse_a0;
             always_ff @(posedge clk) FpgaPins_Fpga_KYPD_TWH_cnt_a1[24:0] <= FpgaPins_Fpga_KYPD_TWH_cnt_a0[24:0];
 
             // Staging of $out.
-            always_ff @(posedge clk) FpgaPins_Fpga_KYPD_TWH_out_a1[7:0] <= FpgaPins_Fpga_KYPD_TWH_out_a0[7:0];
+            always_ff @(posedge clk) FpgaPins_Fpga_KYPD_TWH_out_a1[3:0] <= FpgaPins_Fpga_KYPD_TWH_out_a0[3:0];
 
 
 
@@ -216,9 +216,9 @@ logic FpgaPins_Fpga_KYPD_TWH_sample_pulse_a0;
                assign \///@0$column_4 = FpgaPins_Fpga_KYPD_TWH_column_4_a0;
                (* keep *) logic [3:0] \///@0$inp_digit ;
                assign \///@0$inp_digit = FpgaPins_Fpga_KYPD_TWH_inp_digit_a0;
-               (* keep *) logic [7:0] \///@0$out ;
+               (* keep *) logic [3:0] \///@0$out ;
                assign \///@0$out = FpgaPins_Fpga_KYPD_TWH_out_a0;
-               (* keep *) logic [7:0] \///@0$out1 ;
+               (* keep *) logic [3:0] \///@0$out1 ;
                assign \///@0$out1 = FpgaPins_Fpga_KYPD_TWH_out1_a0;
                (* keep *) logic  \///@0$reset ;
                assign \///@0$reset = FpgaPins_Fpga_KYPD_TWH_reset_a0;
@@ -287,7 +287,7 @@ logic FpgaPins_Fpga_KYPD_TWH_sample_pulse_a0;
                      assign FpgaPins_Fpga_KYPD_TWH_column_4_a0[3:0] = 4'b1000;
             
                      // Column Select MUX
-                     assign FpgaPins_Fpga_KYPD_TWH_out_a0[7:0] =
+                     assign FpgaPins_Fpga_KYPD_TWH_out_a0[3:0] =
                               FpgaPins_Fpga_KYPD_TWH_reset_a0 ? FpgaPins_Fpga_KYPD_TWH_column_1_a0 :
                               !FpgaPins_Fpga_KYPD_TWH_sample_pulse_a0 ? FpgaPins_Fpga_KYPD_TWH_out_a1 :
                               (FpgaPins_Fpga_KYPD_TWH_out_a1 == FpgaPins_Fpga_KYPD_TWH_column_1_a0) ? FpgaPins_Fpga_KYPD_TWH_column_2_a0 :
@@ -297,12 +297,12 @@ logic FpgaPins_Fpga_KYPD_TWH_sample_pulse_a0;
             
             
                      // Output Column to the 7Segment Display.
-                     assign uo_out = FpgaPins_Fpga_KYPD_TWH_out_a0;
+                     assign uo_out = FpgaPins_Fpga_KYPD_TWH_out_a0 ;
             
                      // Read Keypad
             
-                     assign FpgaPins_Fpga_KYPD_TWH_inp_digit_a0[3:0] = ui_in[7:4];
-                     assign FpgaPins_Fpga_KYPD_TWH_out1_a0[7:0] = {FpgaPins_Fpga_KYPD_TWH_inp_digit_a0, 4'b0};
+                     assign FpgaPins_Fpga_KYPD_TWH_inp_digit_a0[3:0] = ui_in[7:4] ;
+                     assign FpgaPins_Fpga_KYPD_TWH_out1_a0[3:0] = FpgaPins_Fpga_KYPD_TWH_inp_digit_a0 ;
                      assign uo_out = FpgaPins_Fpga_KYPD_TWH_out1_a0;
             
             
