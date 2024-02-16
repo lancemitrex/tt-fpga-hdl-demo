@@ -116,19 +116,19 @@ logic FpgaPins_Fpga_KYPD_TWH_column3_a0;
 logic FpgaPins_Fpga_KYPD_TWH_column4_a0;
 
 // For /fpga_pins/fpga|kypd_twh$column_1.
-logic FpgaPins_Fpga_KYPD_TWH_column_1_a0;
+logic [3:0] FpgaPins_Fpga_KYPD_TWH_column_1_a0;
 
 // For /fpga_pins/fpga|kypd_twh$column_2.
-logic FpgaPins_Fpga_KYPD_TWH_column_2_a0;
+logic [3:0] FpgaPins_Fpga_KYPD_TWH_column_2_a0;
 
 // For /fpga_pins/fpga|kypd_twh$column_3.
-logic FpgaPins_Fpga_KYPD_TWH_column_3_a0;
+logic [3:0] FpgaPins_Fpga_KYPD_TWH_column_3_a0;
 
 // For /fpga_pins/fpga|kypd_twh$column_4.
-logic FpgaPins_Fpga_KYPD_TWH_column_4_a0;
+logic [3:0] FpgaPins_Fpga_KYPD_TWH_column_4_a0;
 
 // For /fpga_pins/fpga|kypd_twh$out.
-logic [3:0] FpgaPins_Fpga_KYPD_TWH_out_a0,
+logic [7:0] FpgaPins_Fpga_KYPD_TWH_out_a0,
             FpgaPins_Fpga_KYPD_TWH_out_a1;
 
 // For /fpga_pins/fpga|kypd_twh$r_column1.
@@ -202,7 +202,7 @@ logic FpgaPins_Fpga_KYPD_TWH_sample_pulse_a0;
             // verilator lint_restore
 
             // Staging of $out.
-            always_ff @(posedge clk) FpgaPins_Fpga_KYPD_TWH_out_a1[3:0] <= FpgaPins_Fpga_KYPD_TWH_out_a0[3:0];
+            always_ff @(posedge clk) FpgaPins_Fpga_KYPD_TWH_out_a1[7:0] <= FpgaPins_Fpga_KYPD_TWH_out_a0[7:0];
 
             // Staging of random value for missing assignment.
             assign FpgaPins_Fpga_KYPD_TWH_r_column1_n1[31:0] = $random() ^ {31'b0, clk};
@@ -280,15 +280,15 @@ logic FpgaPins_Fpga_KYPD_TWH_sample_pulse_a0;
                assign \>>>@0$column3 = FpgaPins_Fpga_KYPD_TWH_column3_a0;
                (* keep *) logic  \>>>@0$column4 ;
                assign \>>>@0$column4 = FpgaPins_Fpga_KYPD_TWH_column4_a0;
-               (* keep *) logic  \///@0$column_1 ;
+               (* keep *) logic [3:0] \///@0$column_1 ;
                assign \///@0$column_1 = FpgaPins_Fpga_KYPD_TWH_column_1_a0;
-               (* keep *) logic  \///@0$column_2 ;
+               (* keep *) logic [3:0] \///@0$column_2 ;
                assign \///@0$column_2 = FpgaPins_Fpga_KYPD_TWH_column_2_a0;
-               (* keep *) logic  \///@0$column_3 ;
+               (* keep *) logic [3:0] \///@0$column_3 ;
                assign \///@0$column_3 = FpgaPins_Fpga_KYPD_TWH_column_3_a0;
-               (* keep *) logic  \///@0$column_4 ;
+               (* keep *) logic [3:0] \///@0$column_4 ;
                assign \///@0$column_4 = FpgaPins_Fpga_KYPD_TWH_column_4_a0;
-               (* keep *) logic [3:0] \///@0$out ;
+               (* keep *) logic [7:0] \///@0$out ;
                assign \///@0$out = FpgaPins_Fpga_KYPD_TWH_out_a0;
                (* keep *) logic  \///@0$reset ;
                assign \///@0$reset = FpgaPins_Fpga_KYPD_TWH_reset_a0;
@@ -351,14 +351,14 @@ logic FpgaPins_Fpga_KYPD_TWH_sample_pulse_a0;
                      assign FpgaPins_Fpga_KYPD_TWH_sample_pulse_a0 = FpgaPins_Fpga_KYPD_TWH_cnt_a0 == 9'b111111111;
                      //$sample_pulse = $sample_pulse + 1'b1;
             
-                     assign FpgaPins_Fpga_KYPD_TWH_column_1_a0 = 4'b0001;
-                     assign FpgaPins_Fpga_KYPD_TWH_column_2_a0 = 4'b0010;
-                     assign FpgaPins_Fpga_KYPD_TWH_column_3_a0 = 4'b0100;
-                     assign FpgaPins_Fpga_KYPD_TWH_column_4_a0 = 4'b1000;
+                     assign FpgaPins_Fpga_KYPD_TWH_column_1_a0[3:0] = 4'b0001;
+                     assign FpgaPins_Fpga_KYPD_TWH_column_2_a0[3:0] = 4'b0010;
+                     assign FpgaPins_Fpga_KYPD_TWH_column_3_a0[3:0] = 4'b0100;
+                     assign FpgaPins_Fpga_KYPD_TWH_column_4_a0[3:0] = 4'b1000;
             
             
-                     assign FpgaPins_Fpga_KYPD_TWH_out_a0[3:0] =
-                              !FpgaPins_Fpga_KYPD_TWH_reset_a0 ? FpgaPins_Fpga_KYPD_TWH_column1_a0 :
+                     assign FpgaPins_Fpga_KYPD_TWH_out_a0[7:0] =
+                              FpgaPins_Fpga_KYPD_TWH_reset_a0 ? FpgaPins_Fpga_KYPD_TWH_column1_a0 :
                               !FpgaPins_Fpga_KYPD_TWH_sample_pulse_a0 ? FpgaPins_Fpga_KYPD_TWH_out_a1 :
                               (FpgaPins_Fpga_KYPD_TWH_out_a1 == FpgaPins_Fpga_KYPD_TWH_column1_a0) ? FpgaPins_Fpga_KYPD_TWH_column2_a0 :
                               (FpgaPins_Fpga_KYPD_TWH_out_a1 == FpgaPins_Fpga_KYPD_TWH_column2_a0) ? FpgaPins_Fpga_KYPD_TWH_column3_a0 :
