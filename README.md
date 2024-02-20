@@ -1,4 +1,12 @@
-![](../../workflows/gds/badge.svg) ![](../../workflows/docs/badge.svg) ![](../../workflows/test/badge.svg) ![](../../workflows/fpga/badge.svg)
+The project was originated during the training class, "ChipCraft: The Art of Chip Design for Non-Experts" presented by eFabless.
+
+Project Title: Input DIP Switch to HEX 7-Segment Display.
+
+This Project is a 'simple' project for inexperienced FPGA and/or inexperienced Verilog programmers.
+The project reads the INPUT DIP Switch on the Tiny Tapeout Demo Board and outputs the value, properly formatted Hex character, to the 7-Segment display which is also on the Tiny Tapeout Demo Board.
+
+
+
 
 # Overview
 
