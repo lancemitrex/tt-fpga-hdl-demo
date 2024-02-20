@@ -18,7 +18,7 @@ module top(input logic clk, input logic reset, input logic [31:0] cyc_cnt, outpu
    logic [7:0] ui_in, uo_out;
    
    logic [31:0] r;
-   always @(posedge clk) r <= $urandom();
+   always @(posedge clk) r <= 0;
    assign ui_in = r[7:0];
    
    logic ena = 1'b0;
@@ -100,7 +100,7 @@ logic [7:0] L0_sseg_digit_n_a0;
 logic [6:0] L0_sseg_segment_n_a0;
 
 // For /fpga_pins/fpga|kypd_twh$cnt.
-logic [24:0] FpgaPins_Fpga_KYPD_TWH_cnt_a0,
+logic [14:0] FpgaPins_Fpga_KYPD_TWH_cnt_a0,
              FpgaPins_Fpga_KYPD_TWH_cnt_a1;
 
 // For /fpga_pins/fpga|kypd_twh$column_1.
@@ -149,7 +149,7 @@ logic FpgaPins_Fpga_KYPD_TWH_sample_pulse_a0;
          //
 
             // Staging of $cnt.
-            always_ff @(posedge clk) FpgaPins_Fpga_KYPD_TWH_cnt_a1[24:0] <= FpgaPins_Fpga_KYPD_TWH_cnt_a0[24:0];
+            always_ff @(posedge clk) FpgaPins_Fpga_KYPD_TWH_cnt_a1[14:0] <= FpgaPins_Fpga_KYPD_TWH_cnt_a0[14:0];
 
             // Staging of $out.
             always_ff @(posedge clk) FpgaPins_Fpga_KYPD_TWH_out_a1[3:0] <= FpgaPins_Fpga_KYPD_TWH_out_a0[3:0];
@@ -204,7 +204,7 @@ logic FpgaPins_Fpga_KYPD_TWH_sample_pulse_a0;
             // Scope: |kypd_twh
             //
             if (1) begin : P_kypd_twh
-               (* keep *) logic [24:0] \///@0$cnt ;
+               (* keep *) logic [14:0] \///@0$cnt ;
                assign \///@0$cnt = FpgaPins_Fpga_KYPD_TWH_cnt_a0;
                (* keep *) logic [3:0] \///@0$column_1 ;
                assign \///@0$column_1 = FpgaPins_Fpga_KYPD_TWH_column_1_a0;
@@ -276,9 +276,9 @@ logic FpgaPins_Fpga_KYPD_TWH_sample_pulse_a0;
             
                      assign FpgaPins_Fpga_KYPD_TWH_reset_a0 = reset || ui_in[7];
             
-                     assign FpgaPins_Fpga_KYPD_TWH_cnt_a0[24:0] = FpgaPins_Fpga_KYPD_TWH_reset_a0 ? 25'b0 : FpgaPins_Fpga_KYPD_TWH_cnt_a1 + 1'b1;
+                     assign FpgaPins_Fpga_KYPD_TWH_cnt_a0[14:0] = FpgaPins_Fpga_KYPD_TWH_reset_a0 ? 15'b0 : FpgaPins_Fpga_KYPD_TWH_cnt_a1 + 1'b1;
             
-                     assign FpgaPins_Fpga_KYPD_TWH_sample_pulse_a0 = FpgaPins_Fpga_KYPD_TWH_cnt_a0 == 25'b1111111111111111111111111;
+                     assign FpgaPins_Fpga_KYPD_TWH_sample_pulse_a0 = FpgaPins_Fpga_KYPD_TWH_cnt_a0 == 15'b111111111111111;
                      //$sample_pulse = $sample_pulse + 1'b1;
             
                      assign FpgaPins_Fpga_KYPD_TWH_column_1_a0[3:0] = 4'b0001;
