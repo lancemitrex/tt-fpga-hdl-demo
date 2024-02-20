@@ -126,7 +126,7 @@ logic [7:0] FpgaPins_Fpga_KYPD_TWH_out1_a0;
 logic FpgaPins_Fpga_KYPD_TWH_reset_a0;
 
 // For /fpga_pins/fpga|kypd_twh$row_input.
-logic [3:0] FpgaPins_Fpga_KYPD_TWH_row_input_a0;
+logic [7:0] FpgaPins_Fpga_KYPD_TWH_row_input_a0;
 
 // For /fpga_pins/fpga|kypd_twh$sample_pulse.
 logic FpgaPins_Fpga_KYPD_TWH_sample_pulse_a0;
@@ -220,7 +220,7 @@ logic FpgaPins_Fpga_KYPD_TWH_sample_pulse_a0;
                assign \///@0$out1 = FpgaPins_Fpga_KYPD_TWH_out1_a0;
                (* keep *) logic  \///@0$reset ;
                assign \///@0$reset = FpgaPins_Fpga_KYPD_TWH_reset_a0;
-               (* keep *) logic [3:0] \///@0$row_input ;
+               (* keep *) logic [7:0] \///@0$row_input ;
                assign \///@0$row_input = FpgaPins_Fpga_KYPD_TWH_row_input_a0;
                (* keep *) logic  \///@0$sample_pulse ;
                assign \///@0$sample_pulse = FpgaPins_Fpga_KYPD_TWH_sample_pulse_a0;
@@ -299,8 +299,8 @@ logic FpgaPins_Fpga_KYPD_TWH_sample_pulse_a0;
                                                   FpgaPins_Fpga_KYPD_TWH_out1_a0 ;
             
                      // Read Keypad
-                     assign FpgaPins_Fpga_KYPD_TWH_row_input_a0[3:0] = ui_in[7:4] ;
-                     //$row_input[7:0] = *ui_in[7:0] ;
+                     //$row_input[3:0] = *ui_in[7:4] ;
+                     assign FpgaPins_Fpga_KYPD_TWH_row_input_a0[7:0] = ui_in[7:0] ;
                      assign FpgaPins_Fpga_KYPD_TWH_out1_a0[7:0] = !FpgaPins_Fpga_KYPD_TWH_row_input_a0 ;
             
             
