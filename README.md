@@ -1,5 +1,7 @@
 The project was originated during the training class, "ChipCraft: The Art of Chip Design for Non-Experts" presented by eFabless.
 
+The project utilizes techniques associated with Tiny Tapeout and Redwood EDA.
+
 Project Title: Input DIP Switch to HEX 7-Segment Display.
 
 This Project is a 'simple' project for inexperienced FPGA and/or inexperienced Verilog programmers. 
