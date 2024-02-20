@@ -120,11 +120,7 @@ logic [3:0] FpgaPins_Fpga_KYPD_TWH_out_a0,
             FpgaPins_Fpga_KYPD_TWH_out_a1;
 
 // For /fpga_pins/fpga|kypd_twh$out1.
-logic FpgaPins_Fpga_KYPD_TWH_out1_a0;
-
-// For /fpga_pins/fpga|kypd_twh$r_out1.
-logic [31:0] FpgaPins_Fpga_KYPD_TWH_r_out1_n1,
-             FpgaPins_Fpga_KYPD_TWH_r_out1_a0;
+logic [7:0] FpgaPins_Fpga_KYPD_TWH_out1_a0;
 
 // For /fpga_pins/fpga|kypd_twh$reset.
 logic FpgaPins_Fpga_KYPD_TWH_reset_a0;
@@ -160,17 +156,6 @@ logic FpgaPins_Fpga_KYPD_TWH_sample_pulse_a0;
 
             // Staging of $out.
             always_ff @(posedge clk) FpgaPins_Fpga_KYPD_TWH_out_a1[3:0] <= FpgaPins_Fpga_KYPD_TWH_out_a0[3:0];
-
-            // Staging of signal $out1, which had no assignment.
-            // Assign to a random value.
-            // verilator lint_save
-            // verilator lint_off WIDTH
-            assign FpgaPins_Fpga_KYPD_TWH_out1_a0 = FpgaPins_Fpga_KYPD_TWH_r_out1_a0;
-            // verilator lint_restore
-
-            // Staging of random value for missing assignment.
-            assign FpgaPins_Fpga_KYPD_TWH_r_out1_n1[31:0] = $random() ^ {31'b0, clk};
-            always_ff @(posedge clk) FpgaPins_Fpga_KYPD_TWH_r_out1_a0[31:0] <= FpgaPins_Fpga_KYPD_TWH_r_out1_n1[31:0];
 
 
 
@@ -234,8 +219,8 @@ logic FpgaPins_Fpga_KYPD_TWH_sample_pulse_a0;
                assign \///@0$column_4 = FpgaPins_Fpga_KYPD_TWH_column_4_a0;
                (* keep *) logic [3:0] \///@0$out ;
                assign \///@0$out = FpgaPins_Fpga_KYPD_TWH_out_a0;
-               (* keep *) logic  \>>>@0$out1 ;
-               assign \>>>@0$out1 = FpgaPins_Fpga_KYPD_TWH_out1_a0;
+               (* keep *) logic [7:0] \///@0$out1 ;
+               assign \///@0$out1 = FpgaPins_Fpga_KYPD_TWH_out1_a0;
                (* keep *) logic  \///@0$reset ;
                assign \///@0$reset = FpgaPins_Fpga_KYPD_TWH_reset_a0;
                (* keep *) logic [7:0] \///@0$rowColumn ;
@@ -322,8 +307,8 @@ logic FpgaPins_Fpga_KYPD_TWH_sample_pulse_a0;
                      //$row_input[3:0] = *ui_in[7:4] ;
                      assign FpgaPins_Fpga_KYPD_TWH_row_input_a0[3:0] = ui_in[7:4] ;
             
-                     //$row1[7:4] = $row_input ;
                      assign FpgaPins_Fpga_KYPD_TWH_rowColumn_a0[7:0] = {FpgaPins_Fpga_KYPD_TWH_row_input_a0[7:4], FpgaPins_Fpga_KYPD_TWH_out_a0[3:0]} ;
+                     assign FpgaPins_Fpga_KYPD_TWH_out1_a0[7:0] = FpgaPins_Fpga_KYPD_TWH_rowColumn_a0;
             
                      //*uo_out = $out1;
             
