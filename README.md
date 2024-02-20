@@ -5,7 +5,7 @@ Project Title: Input DIP Switch to HEX 7-Segment Display.
 This Project is a 'simple' project for inexperienced FPGA and/or inexperienced Verilog programmers.
 The project reads the INPUT DIP Switch on the Tiny Tapeout Demo Board and outputs the value, properly formatted Hex character, to the 7-Segment display which is also on the Tiny Tapeout Demo Board.
 
-
+The remainder of this README.md outlines the process utilized for this project.
 
 
 # Overview
